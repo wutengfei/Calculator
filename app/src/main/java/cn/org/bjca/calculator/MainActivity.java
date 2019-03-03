@@ -1,9 +1,15 @@
 package cn.org.bjca.calculator;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText shiye;
     private EditText gongshang;
     private EditText shengyu;
+    double personTax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +45,67 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculator(View view) {
-        int salarys= Integer.parseInt(salary.getText().toString().trim());
-        int subsidys= Integer.parseInt(subsidy.getText().toString().trim());
-        int taxBases= Integer.parseInt(taxBase.getText().toString().trim());
-        int gjjBases= Integer.parseInt(gjjBase.getText().toString().trim());
-        int gongjijins= Integer.parseInt(gongjijin.getText().toString().trim());
-        int medicals= Integer.parseInt(medical.getText().toString().trim());
-        int yanglaos= Integer.parseInt(yanglao.getText().toString().trim());
-        int shiyes= Integer.parseInt(shiye.getText().toString().trim());
-        int gongshangs= Integer.parseInt(gongshang.getText().toString().trim());
-        int shengyus= Integer.parseInt(shengyu.getText().toString().trim());
+        double salarys = Double.parseDouble(salary.getText().toString().trim().equals("")
+                ? "0" : salary.getText().toString().trim());
+        double subsidys = Double.parseDouble(subsidy.getText().toString().trim().equals("")
+                ? "0" : subsidy.getText().toString().trim());
+        double taxBases = Double.parseDouble(taxBase.getText().toString().trim().equals("")
+                ? "0" : taxBase.getText().toString().trim());
+        double gjjBases = Double.parseDouble(gjjBase.getText().toString().trim().equals("")
+                ? "0" : gjjBase.getText().toString().trim());
+        double gongjijins = Double.parseDouble(gongjijin.getText().toString().trim().equals("")
+                ? "0" : gongjijin.getText().toString().trim());
+        double medicals = Double.parseDouble(medical.getText().toString().trim().equals("")
+                ? "0" : medical.getText().toString().trim());
+        double yanglaos = Double.parseDouble(yanglao.getText().toString().trim().equals("")
+                ? "0" : yanglao.getText().toString().trim());
+        double shiyes = Double.parseDouble(shiye.getText().toString().trim().equals("")
+                ? "0" : shiye.getText().toString().trim());
+        double gongshangs = Double.parseDouble(gongshang.getText().toString().trim().equals("")
+                ? "0" : gongshang.getText().toString().trim());
+        double shengyus = Double.parseDouble(shengyu.getText().toString().trim().equals("")
+                ? "0" : shengyu.getText().toString().trim());
 
-        
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        double gongjijint = Double.parseDouble(df.format(gjjBases * gongjijins / 100));//应缴纳公积金
+        double medicalt = Double.parseDouble(df.format(taxBases * medicals / 100));
+        double yanglaot = Double.parseDouble(df.format(taxBases * yanglaos / 100));
+        double shiyet = Double.parseDouble(df.format(taxBases * shiyes / 100));
+        double gongshangt = Double.parseDouble(df.format(taxBases * gongshangs / 100));
+        double shengyut = Double.parseDouble(df.format(taxBases * shengyus / 100));
+
+        double afterSecurity = salarys + subsidys - gongjijint - medicalt - yanglaot
+                - shiyet - gongshangt - shengyut;//扣除社保和公积金后所剩额
+
+        if (afterSecurity <= 5000) {
+            personTax = 0;
+        } else if (afterSecurity > 5000 && afterSecurity <= 8000) {
+            personTax = (afterSecurity - 5000) * 0.03;
+        } else if (afterSecurity > 8000 && afterSecurity <= 17000) {
+            personTax = (afterSecurity - 5000) * 0.10 - 210;
+        } else if (afterSecurity > 17000 && afterSecurity <= 30000) {
+            personTax = (afterSecurity - 5000) * 0.20 - 1410;
+        } else if (afterSecurity > 30000 && afterSecurity <= 40000) {
+            personTax = (afterSecurity - 5000) * 0.25 - 2660;
+        } else if (afterSecurity > 40000 && afterSecurity <= 60000) {
+            personTax = (afterSecurity - 5000) * 0.30 - 4410;
+        } else if (afterSecurity > 60000 && afterSecurity <= 85000) {
+            personTax = (afterSecurity - 5000) * 0.35 - 7160;
+        } else if (afterSecurity > 85000) {
+            personTax = (afterSecurity - 5000) * 0.45 - 15160;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+        builder.setMessage("个税：" + Double.parseDouble(df.format(personTax)) + "\n" +
+                "公积金：" + gongjijint + "\n" +
+                "医疗：" + medicalt + "\n" +
+                "养老：" + yanglaot + "\n" +
+                "失业：" + shiyet + "\n" +
+                "工伤：" + gongshangt + "\n" +
+                "生育：" + shengyut + "\n"
+        );
+        builder.show();
 
     }
 }

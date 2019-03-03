@@ -27,7 +27,7 @@
             android:id="@+id/salary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
 
     </LinearLayout>
 
@@ -44,8 +44,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="无需纳税的日常补助"
+            android:inputType="numberDecimal"
+            android:hint="不缴纳社保的部分"
             android:id="@+id/subsidy" />
 
     </LinearLayout>
@@ -65,7 +65,7 @@
             android:id="@+id/taxBase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
 
     </LinearLayout>
 
@@ -84,7 +84,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
 
     </LinearLayout>
 
@@ -111,7 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="9"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:text="12"
             android:id="@+id/gongjijin"/>
 
@@ -138,7 +138,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="9"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:id="@+id/medical"
             android:text="2" />
 
@@ -166,7 +166,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="9"
             android:id="@+id/yanglao"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:text="8" />
 
         <TextView
@@ -192,7 +192,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="9"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:id="@+id/shiye"
             android:text="0.2" />
 
@@ -220,7 +220,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="9"
             android:id="@+id/gongshang"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:text="0" />
 
         <TextView
@@ -247,7 +247,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="9"
             android:id="@+id/shengyu"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:text="0" />
 
         <TextView
