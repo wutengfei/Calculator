@@ -96,14 +96,19 @@ public class MainActivity extends AppCompatActivity {
             personTax = (afterSecurity - 5000) * 0.45 - 15160;
         }
 
+        double security = gongjijint + medicalt + yanglaot + shiyet + gongshangt + shengyut;
+        double left = afterSecurity - personTax;
         AlertDialog.Builder builder = new AlertDialog.Builder(this, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
-        builder.setMessage("个税：" + Double.parseDouble(df.format(personTax)) + "\n" +
-                "公积金：" + gongjijint + "\n" +
-                "医疗：" + medicalt + "\n" +
-                "养老：" + yanglaot + "\n" +
-                "失业：" + shiyet + "\n" +
-                "工伤：" + gongshangt + "\n" +
-                "生育：" + shengyut + "\n"
+        builder.setMessage(
+                "税后所得：" + Double.parseDouble(df.format(left)) + "\n" +
+                        "个税：" + Double.parseDouble(df.format(personTax)) + "\n" +
+                        "五险一金总计："+Double.parseDouble(df.format(security))+ "\n" +
+                        "公积金：" + gongjijint + "\n" +
+                        "医疗：" + medicalt + "\n" +
+                        "养老：" + yanglaot + "\n" +
+                        "失业：" + shiyet + "\n" +
+                        "工伤：" + gongshangt + "\n" +
+                        "生育：" + shengyut + "\n"
         );
         builder.show();
 

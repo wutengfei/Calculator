@@ -58,7 +58,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="纳税基数"
+            android:text="社保基数"
             android:id="@+id/textView" />
 
         <EditText
