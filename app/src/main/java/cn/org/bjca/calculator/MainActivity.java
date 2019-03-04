@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText gongshang;
     private EditText shengyu;
     double personTax;
+    private EditText kouchu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         shiye = (EditText) findViewById(R.id.shiye);
         gongshang = (EditText) findViewById(R.id.gongshang);
         shengyu = (EditText) findViewById(R.id.shengyu);
+        kouchu = (EditText) findViewById(R.id.kouchu);
 
 
     }
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
                 ? "0" : gongshang.getText().toString().trim());
         double shengyus = Double.parseDouble(shengyu.getText().toString().trim().equals("")
                 ? "0" : shengyu.getText().toString().trim());
+        double kouchus = Double.parseDouble(kouchu.getText().toString().trim().equals("")
+                ? "0" : kouchu.getText().toString().trim());
 
         DecimalFormat df = new DecimalFormat("0.00");
 
@@ -75,8 +79,9 @@ public class MainActivity extends AppCompatActivity {
         double gongshangt = Double.parseDouble(df.format(taxBases * gongshangs / 100));
         double shengyut = Double.parseDouble(df.format(taxBases * shengyus / 100));
 
+
         double afterSecurity = salarys + subsidys - gongjijint - medicalt - yanglaot
-                - shiyet - gongshangt - shengyut;//扣除社保和公积金后所剩额
+                - shiyet - gongshangt - shengyut-kouchus;//扣除社保、公积金和专项扣除项后所剩额
 
         if (afterSecurity <= 5000) {
             personTax = 0;
@@ -97,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         double security = gongjijint + medicalt + yanglaot + shiyet + gongshangt + shengyut;
-        double left = afterSecurity - personTax;
+        double left = afterSecurity +kouchus- personTax;
         AlertDialog.Builder builder = new AlertDialog.Builder(this, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
         builder.setMessage(
                 "税后所得：" + Double.parseDouble(df.format(left)) + "\n" +

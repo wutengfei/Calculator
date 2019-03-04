@@ -1,268 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cn.org.bjca.calculator.MainActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_main"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              tools:context="cn.org.bjca.calculator.MainActivity">
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+    >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="月工资"
-          />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <EditText
-            android:hint="不含补助"
-            android:id="@+id/salary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
 
-    </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="月工资"
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="补助" />
+                />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="不缴纳社保的部分"
-            android:id="@+id/subsidy" />
+                <EditText
+                        android:hint="不含补助"
+                        android:id="@+id/salary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"/>
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="社保基数"
-            android:id="@+id/textView" />
+                <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="补助"/>
 
-        <EditText
-            android:id="@+id/taxBase"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:hint="补助不需缴纳社保"
+                        android:id="@+id/subsidy"/>
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="公积金基数" />
+                <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="社保基数"
+                        android:id="@+id/textView"/>
 
-        <EditText
-            android:id="@+id/gjjBase"
+                <EditText
+                        android:id="@+id/taxBase"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"/>
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="五险一金" />
+                <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="公积金基数"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+                <EditText
+                        android:id="@+id/gjjBase"
 
-        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="公积金" />
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:inputType="numberDecimal"
-            android:text="12"
-            android:id="@+id/gongjijin"/>
+                <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="专项扣除"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="%" />
-    </LinearLayout>
+                <EditText
+                        android:id="@+id/kouchu"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"/>
 
-        android:orientation="horizontal">
+            </LinearLayout>
+            <!--         <TextView
+                             android:id="@+id/textView13"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="10dp"
+                             android:text="五险一金"/>-->
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="医疗" />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:inputType="numberDecimal"
-            android:id="@+id/medical"
-            android:text="2" />
+                    android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="%" />
-    </LinearLayout>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="公积金"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+                <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:inputType="numberDecimal"
+                        android:text="12"
+                        android:id="@+id/gongjijin"/>
 
-        android:orientation="horizontal">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="%"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="养老" />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:id="@+id/yanglao"
-            android:inputType="numberDecimal"
-            android:text="8" />
+                    android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="%" />
-    </LinearLayout>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="医疗"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+                <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:inputType="numberDecimal"
+                        android:id="@+id/medical"
+                        android:text="2"/>
 
-        android:orientation="horizontal">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="%"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="失业" />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:inputType="numberDecimal"
-            android:id="@+id/shiye"
-            android:text="0.2" />
+                    android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="%" />
-    </LinearLayout>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="养老"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+                <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:id="@+id/yanglao"
+                        android:inputType="numberDecimal"
+                        android:text="8"/>
 
-        android:orientation="horizontal">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="%"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="工伤" />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:id="@+id/gongshang"
-            android:inputType="numberDecimal"
-            android:text="0" />
+                    android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="%" />
-    </LinearLayout>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="失业"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+                <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:inputType="numberDecimal"
+                        android:id="@+id/shiye"
+                        android:text="0.2"/>
 
-        android:orientation="horizontal">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="%"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="生育" />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:id="@+id/shengyu"
-            android:inputType="numberDecimal"
-            android:text="0" />
+                    android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="%" />
-    </LinearLayout>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="工伤"/>
 
+                <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:id="@+id/gongshang"
+                        android:inputType="numberDecimal"
+                        android:text="0"/>
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="%"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="生育"/>
+
+                <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:id="@+id/shengyu"
+                        android:inputType="numberDecimal"
+                        android:text="0"/>
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="%"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
     <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
-        android:text="计算"
-        android:onClick="calculator"
-        android:textColor="#ff00ff00" />
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="计算"
+            android:layout_weight="1"
+            android:onClick="calculator"
+            android:textColor="#ff00ff00"/>
 </LinearLayout>
